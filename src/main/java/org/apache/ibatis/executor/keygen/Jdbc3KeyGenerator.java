@@ -62,6 +62,14 @@ public class Jdbc3KeyGenerator implements KeyGenerator {
     // do nothing
   }
 
+  /**
+   * 在数据库中插入数据后，读取生成的主键id
+   *
+   * @param executor
+   * @param ms
+   * @param stmt
+   * @param parameter
+   */
   @Override
   public void processAfter(Executor executor, MappedStatement ms, Statement stmt, Object parameter) {
     processBatch(ms, stmt, parameter);

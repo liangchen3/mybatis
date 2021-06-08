@@ -53,6 +53,13 @@ public final class MappedStatement {
   private String id;
   private Integer fetchSize;
   private Integer timeout;
+  /**
+   * SQL语句的类型
+   * MyBatis中支持三种语句类型，不同语句类型支持的变量符号不同。MyBatis中的三种语句类型如下。
+   * · STATEMENT：这种语句类型中，只会对 SQL片段进行简单的字符串拼接。因此，只支持使用“${}”定义变量。
+   * · PREPARED：这种语句类型中，会先对 SQL片段进行字符串拼 接，然后对 SQL片段进行赋值。因此，支持使用“${}”“＃{}”这两种形式定义变量。
+   * · CALLABLE：这种语句类型用来实现执行过程的调用，会先对 SQL 片段进行字符串拼接，然后对 SQL片段进行赋值。因此，支持使用“${}”“＃{}”这两种形式定义变量。
+   */
   private StatementType statementType;
   private ResultSetType resultSetType;
   //SQL源码，对应于我们所写在配置文件中的SQL语句。包含占位符，无法直接执行。可以展开分析就是分行的sql语句text。
