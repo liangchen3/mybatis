@@ -59,6 +59,7 @@ public class DefaultMapResultHandler<K, V> implements ResultHandler<V> {
     // 获得结果对象的元对象
     final MetaObject mo = MetaObject.forObject(value, objectFactory, objectWrapperFactory, reflectorFactory);
     // 基于元对象取出key对应的值
+    // TODO: 2021/6/9 这个key是啥？ 
     final K key = (K) mo.getValue(mapKey);
     mappedResults.put(key, value);
   }
