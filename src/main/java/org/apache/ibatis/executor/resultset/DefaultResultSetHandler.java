@@ -219,7 +219,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
       handleResultSet(rsw, resultMap, multipleResults, null);
       // 获取下一结果集
       rsw = getNextResultSet(stmt);
-      // 清理上一条结果集的环境
+      // 清理上一条结果集的环境 // TODO: 2021/6/15 为什么会有这个操作
       cleanUpAfterHandlingResultSet();
       resultSetCount++;
     }
@@ -463,6 +463,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
    * @throws SQLException
    */
   private void skipRows(ResultSet rs, RowBounds rowBounds) throws SQLException {
+    //判断结果游标是不是只能单步移动
     if (rs.getType() != ResultSet.TYPE_FORWARD_ONLY) {
       // 进入该分支表示：结果的游标不是只能单步前进
       if (rowBounds.getOffset() != RowBounds.NO_ROW_OFFSET) {
