@@ -342,6 +342,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
           DefaultResultHandler defaultResultHandler = new DefaultResultHandler(objectFactory);
           // 处理结果中的记录。
           handleRowValues(rsw, resultMap, defaultResultHandler, rowBounds, null);
+          //处理多结果集（将多结果集添加多到 multipleResults 中）
           multipleResults.add(defaultResultHandler.getResultList());
         } else {
           handleRowValues(rsw, resultMap, resultHandler, rowBounds, null);
@@ -1237,6 +1238,14 @@ public class DefaultResultSetHandler implements ResultSetHandler {
     }
   }
 
+  /**
+   * 将嵌套resultMap处理的结果关联到上一级的结果中
+   * 例如：User对象中有一个关联结果集 List<Task> tasks ,这里就将处理好的task对象赋值加到 List<Task> tasks 中
+   *
+   * @param metaObject
+   * @param resultMapping
+   * @param rowValue
+   */
   private void linkObjects(MetaObject metaObject, ResultMapping resultMapping, Object rowValue) {
     final Object collectionProperty = instantiateCollectionPropertyIfAppropriate(resultMapping, metaObject);
     if (collectionProperty != null) {
