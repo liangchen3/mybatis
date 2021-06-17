@@ -1241,6 +1241,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
   /**
    * 将嵌套resultMap处理的结果关联到上一级的结果中
    * 例如：User对象中有一个关联结果集 List<Task> tasks ,这里就将处理好的task对象赋值加到 List<Task> tasks 中
+   *     或者，如果User对象中有一个关联结果集 Task task ,这里就将处理好的task对象赋值给 task
    *
    * @param metaObject
    * @param resultMapping
