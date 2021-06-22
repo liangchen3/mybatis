@@ -1004,6 +1004,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
       } else {
         rowValue = getRowValue(rsw, discriminatedResultMap, rowKey, null, partialObject);
         if (partialObject == null) {
+          //存储当前结果对象
           storeObject(resultHandler, resultContext, rowValue, parentMapping, resultSet);
         }
       }
