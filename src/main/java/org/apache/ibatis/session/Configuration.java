@@ -105,7 +105,7 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
  * 2、创建类型别名注册机，并向内注册了大量的类型别名
  * 3、创建了大量Map，包括存储映射语句的Map，存储缓存的Map等，这些Map使用的是一种不允许覆盖的严格Map
  * 4、给出了大量的处理器的创建方法，包括参数处理器、语句处理器、结果处理器、执行器。
- *    注意这里并没有真正创建，只是给出了方法。
+ * 注意这里并没有真正创建，只是给出了方法。
  */
 
 public class Configuration {
@@ -505,6 +505,7 @@ public class Configuration {
     /**
      * Set a default {@link TypeHandler} class for {@link Enum}.
      * A default {@link TypeHandler} is {@link org.apache.ibatis.type.EnumTypeHandler}.
+     *
      * @param typeHandler a type handler class for {@link Enum}
      * @since 3.4.5
      */
@@ -596,9 +597,10 @@ public class Configuration {
 
     /**
      * 创建参数处理器
+     *
      * @param mappedStatement SQL操作的信息
      * @param parameterObject 参数对象
-     * @param boundSql SQL语句信息
+     * @param boundSql        SQL语句信息
      * @return 参数处理器
      */
     public ParameterHandler newParameterHandler(MappedStatement mappedStatement, Object parameterObject, BoundSql boundSql) {
@@ -629,7 +631,8 @@ public class Configuration {
 
     /**
      * 创建一个执行器
-     * @param transaction 事务
+     *
+     * @param transaction  事务
      * @param executorType 数据库操作类型
      * @return 执行器
      */
@@ -979,6 +982,7 @@ public class Configuration {
          * Assign a function for producing a conflict error message when contains value with the same key.
          * <p>
          * function arguments are 1st is saved value and 2nd is target value.
+         *
          * @param conflictMessageProducer A function for producing a conflict error message
          * @return a conflict error message
          * @since 3.5.0
@@ -990,7 +994,8 @@ public class Configuration {
 
         /**
          * 向Map中写入键值对
-         * @param key 键
+         *
+         * @param key   键
          * @param value 值
          * @return 旧值，如果不存在旧值则为null。因为StrictMap不允许覆盖，则只能返回null
          */

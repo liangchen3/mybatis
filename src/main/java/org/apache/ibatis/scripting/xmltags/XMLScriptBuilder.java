@@ -71,6 +71,7 @@ public class XMLScriptBuilder extends BaseBuilder {
 
     /**
      * 解析节点生成SqlSource对象
+     *
      * @return SqlSource对象
      */
     public SqlSource parseScriptNode() {
@@ -88,6 +89,7 @@ public class XMLScriptBuilder extends BaseBuilder {
 
     /**
      * 将XNode对象解析为节点树
+     *
      * @param node XNode对象，即数据库操作节点
      * @return 解析后得到的节点树
      */
@@ -129,7 +131,8 @@ public class XMLScriptBuilder extends BaseBuilder {
     private interface NodeHandler {
         /**
          * 该方法将当前节点拼装到节点树中
-         * @param nodeToHandle 要被拼接的节点
+         *
+         * @param nodeToHandle   要被拼接的节点
          * @param targetContents 节点树
          */
         void handleNode(XNode nodeToHandle, List<SqlNode> targetContents);
@@ -218,7 +221,8 @@ public class XMLScriptBuilder extends BaseBuilder {
 
         /**
          * 该方法将当前节点拼装到节点树中
-         * @param nodeToHandle 要被拼接的节点
+         *
+         * @param nodeToHandle   要被拼接的节点
          * @param targetContents 节点树
          */
         @Override
