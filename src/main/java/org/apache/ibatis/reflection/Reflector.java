@@ -98,6 +98,7 @@ public class Reflector {
         Constructor<?>[] constructors = clazz.getDeclaredConstructors();
         // 无参构造函数即为默认构造函数
         Arrays.stream(constructors).filter(constructor -> constructor.getParameterTypes().length == 0)
+                //ifPresent 是用来判断非空的结果，只有constructor非空才会执行 "this.defaultConstructor = constructor" 代码
                 .findAny().ifPresent(constructor -> this.defaultConstructor = constructor);
     }
 
